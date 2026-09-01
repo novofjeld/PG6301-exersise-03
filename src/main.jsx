@@ -8,6 +8,12 @@ function Application() {
     { name: "Mark task as done" },
   ]);
   const [name, setName] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setTask((old) => [...old, { name }]);
+  }
+
   return (
     <>
       <h1>My task application</h1>
@@ -17,7 +23,7 @@ function Application() {
         ))}
       </ul>
       <h2>new tasck</h2>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <div>
           <input
             type="text"
